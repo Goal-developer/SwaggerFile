@@ -1,0 +1,30 @@
+.selectBox {
+    margin: 50px auto; /*居中*/
+    width: 180px;
+    text-align: center;
+}
+
+    .selectBox a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .selectBox ul, .selectBox li {
+        list-style: none;
+    }
+
+    .selectBox span {
+        line-height: 46px;
+        background-color: #41b1d9;
+        display: block;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        border-radius: 5px;
+        -webkit-transition: all .2s ease-in;
+        transition: all .2s ease-in;
+    }
+
+
+
+
