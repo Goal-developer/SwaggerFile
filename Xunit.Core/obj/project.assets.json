@@ -5395,11 +5395,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\cnblogs\\项目\\git\\SwaggerFile\\XUnit.Core.csproj",
+      "projectUniqueName": "E:\\cnblogs\\项目\\git\\SwaggerFile\\Xunit.Core\\XUnit.Core.csproj",
       "projectName": "XUnit.Core",
-      "projectPath": "E:\\cnblogs\\项目\\git\\SwaggerFile\\XUnit.Core.csproj",
+      "projectPath": "E:\\cnblogs\\项目\\git\\SwaggerFile\\Xunit.Core\\XUnit.Core.csproj",
       "packagesPath": "C:\\Users\\CevilleXu\\.nuget\\packages\\",
-      "outputPath": "E:\\cnblogs\\项目\\git\\SwaggerFile\\obj\\",
+      "outputPath": "E:\\cnblogs\\项目\\git\\SwaggerFile\\Xunit.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\CevilleXu\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -24,8 +24,27 @@ function LoadExportApiWordBtn() {
     $(".information-container").height(240);//文档介绍区域高度
     $(".topbar").height(35);
     var btnExport = "<div class='selectBox' style='position: absolute;margin: 0;padding: 0;margin-left: 1432px;top: 2.5px;'>" +
-        "<span><a href='javascript:void(0);' onclick='ExportApiWord()'>导出 Word</a></span>" +
-        "</div>";
+        "<span><a href='javascript:void(0);'>导出离线文档</a></span>" +
+        "<div class='drop'>" +
+        "<ul style='margin: 0;padding: 0;'>" +
+        "<li>" +
+        "<a href='javascript:void(0);' onclick='ExportApiWord(1)'>导出 Word</a>" +
+        "</li>" +
+        "<li>" +
+        "<a href='javascript:void(0);' onclick='ExportApiWord(2)'>导出 PDF</a>" +
+        "</li>" +
+        "<li>" +
+        "<a href='javascript:void(0);' onclick='ExportApiWord(3)'>导出 Html</a>" +
+        "</li >" +
+        "<li>" +
+        "<a href='javascript:void(0);' onclick='ExportApiWord(4)'>导出 Xml</a>" +
+        "</li >" +
+        "<li>" +
+        "<a href='javascript:void(0);' onclick='ExportApiWord(5)'>导出 Svg</a>" +
+        "</li >" +
+        "</ul >" +
+        "</div >" +
+        "</div >";
     //information-container这个元素是swagger后期动态渲染出来的，所有这里要加个循环判断。
     //第一次进来如果有这个class直接加载按钮退出
     if ($("*").hasClass("information-container")) {
@@ -44,6 +63,7 @@ function LoadExportApiWordBtn() {
     }, 788);
 }
 
+
 /**
  * 延迟函数
  * @param {any} delay
@@ -58,8 +78,24 @@ function sleep(delay) {
 /*
  * 导出
  */
-function ExportApiWord() {
-    exten = ".docx";
+function ExportApiWord(type) {
+    switch (type) {
+        case 1:
+            exten = ".docx";
+            break;
+        case 2:
+            exten = ".pdf";
+            break;
+        case 3:
+            exten = ".html";
+            break;
+        case 4:
+            exten = ".xml";
+            break;
+        case 5:
+            exten = ".svg";
+            break;
+    }
     var version = $("#select option:selected").val();
     version = version.split('/')[2];
     var url = '/api/Swagger/ExportWord?type=' + exten + "&version=" + version;

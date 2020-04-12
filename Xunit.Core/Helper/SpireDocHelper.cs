@@ -45,14 +45,39 @@ namespace XUnit.Core.Helper
                 Document document = new Document();
                 //加载HTML文档
                 document.LoadFromStream(stream, FileFormat.Html, XHTMLValidationType.None);
-                //保存为Word
-                document.SaveToFile(addrUrl, FileFormat.Docx);
 
+                switch (type)
+                {
+                    case ".docx":
+                        document.SaveToFile(addrUrl, FileFormat.Docx);
+                        break;
+                    case ".pdf":
+                        document.SaveToFile(addrUrl, FileFormat.PDF);
+                        break;
+                    case ".html":
+                        //document.SaveToFile(addrUrl, FileFormat.Html);
+                        //当然了，html 如果不用spire，也可以直接生成
+                        FileStream fs = new FileStream(addrUrl, FileMode.Append, FileAccess.Write, FileShare.None);//html直接写入不用spire.doc
+                        StreamWriter sw = new StreamWriter(fs); // 创建写入流
+                        sw.WriteLine(html); // 写入Hello World
+                        sw.Close(); //关闭文件
+                        fs.Close();
+                        break;
+                    case ".xml":
+                        document.SaveToFile(addrUrl, FileFormat.Xml);
+                        break;
+                    case ".svg":
+                        document.SaveToFile(addrUrl, FileFormat.SVG);
+                        break;
+                    default:
+                        //保存为Word
+                        document.SaveToFile(addrUrl, FileFormat.Docx);
+                        break;
+                }
                 document.Close();
                 fileStream = File.Open(addrUrl, FileMode.OpenOrCreate);
                 var filedata = ByteHelper.StreamToBytes(fileStream);
                 var outdata = ByteHelper.BytesToStream(filedata);
-
                 return outdata;
             }
             catch (Exception)
